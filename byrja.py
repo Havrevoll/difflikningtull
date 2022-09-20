@@ -6,4 +6,6 @@ from particle import Particle
 
 particle = Particle(diameter=0.05, init_position=[-3,2])
 
-solve_ivp(f,(0,10),0, method='BDF', args=(particle))
+resultat = solve_ivp(f,(0,10),[particle.init_position[0],particle.init_position[1],0,0], method='BDF', args=(particle,),vectorized=True,t_eval=np.linspace(0.1,10,100),dense_output=True)
+
+annan_funksjon(1)
